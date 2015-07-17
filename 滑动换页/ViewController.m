@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "HWDragBackgroundView.h"
 @interface ViewController ()
 
 @end
@@ -16,12 +16,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+     HWDragBackgroundView *dragBackground = [[HWDragBackgroundView alloc]init];
+    dragBackground.frame = self.view.bounds;
+    dragBackground.y = 64;
+    dragBackground.height = self.view.height - dragBackground.y;
+    [self.view addSubview:dragBackground];
+    
+    NSMutableArray *temp = [NSMutableArray array];
+    NSMutableArray *titles = [NSMutableArray array];
+    
+    for (NSInteger i=0; i<12; i++) {
+        UIView *view = [[UIView alloc]init];
+        view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256)/255.0f green:arc4random_uniform(256)/255.0f blue:arc4random_uniform(256)/255.0f alpha:1];
+        [temp addObject:view];
+        NSString *str = [NSString stringWithFormat:@"标题%ld",(long)i];
+        [titles addObject:str];
+    }
+    dragBackground.headTitles = titles;
+    dragBackground.views = temp;
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 @end
