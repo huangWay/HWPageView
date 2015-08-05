@@ -2,15 +2,16 @@
 //  HWDragBackgroundView.m
 //  滑动换页
 //
-//  Created by 黄伟 on 15/7/15.
-//  Copyright (c) 2015年 huangwei. All rights reserved.
+//  Created by 黄伟 on 14/11/15.
+//  Copyright (c) 2014年 huangwei. All rights reserved.
 //
 
 #import "HWDragBackgroundView.h"
 
 #define Default_Height 44//顶部滚动条默认高度44
 @interface HWDragBackgroundView()<UICollectionViewDataSource,UICollectionViewDelegate>
-
+//顶部滚动条
+@property(nonatomic,strong) HWHeadView *headView;
 @end
 
 
@@ -28,7 +29,7 @@ static NSString *ID = @"collectionCell";
     
     //创建底部用来滑动换页的collectionView
     [self setUpDragView];
-    
+
 }
 
 //创建顶部滚动条
@@ -36,8 +37,8 @@ static NSString *ID = @"collectionCell";
     
     //创建滚动条
     HWHeadView *headView = [[HWHeadView alloc]init];
-    headView.frame = CGRectMake(0, 0, self.width, Default_Height);
     
+    headView.frame = CGRectMake(0, 0, self.width, Default_Height);
     //设置滚动条的titles属性(在HWHeadView类中，titles的setter方法里布局了所有的子控件)
     headView.titles = self.headTitles;
     

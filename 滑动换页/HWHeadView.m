@@ -2,8 +2,8 @@
 //  HWHeadView.m
 //  滑动换页
 //
-//  Created by 黄伟 on 15/7/15.
-//  Copyright (c) 2015年 huangwei. All rights reserved.
+//  Created by 黄伟 on 14/11/15.
+//  Copyright (c) 2014年 huangwei. All rights reserved.
 //
 
 #import "HWHeadView.h"
@@ -36,10 +36,8 @@
 
 -(instancetype)init{
     if (self = [super init]) {
-        
         //隐藏滚动条
         self.showsHorizontalScrollIndicator = NO;
-
     }
     return self;
 }
